@@ -1,0 +1,38 @@
+@baseUrl = http://localhost:5242
+
+### Get all customers
+GET {{baseUrl}}/api/customers
+Accept: application/json
+
+### Get customer by ID
+GET {{baseUrl}}/api/customers/1
+Accept: application/json
+
+### Create a customer
+POST {{baseUrl}}/api/customers
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Johnson",
+  "email": "alice.johnson@example.com",
+  "phoneNumber": "+1-555-123-4567"
+}
+
+### Update a customer
+PUT {{baseUrl}}/api/customers/1
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "email": "alice.smith@example.com",
+  "phoneNumber": "+1-555-987-6543"
+}
+
+### Delete a customer
+DELETE {{baseUrl}}/api/customers/1
+
+### Get missing customer
+GET {{baseUrl}}/api/customers/9999
+Accept: application/json
