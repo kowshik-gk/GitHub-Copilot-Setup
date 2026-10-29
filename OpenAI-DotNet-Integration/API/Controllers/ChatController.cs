@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.AI;
+using OllamaSharp;
 using OpenAI_DotNet_Integration.Domain.Interfaces;
 
 namespace OpenAI_DotNet_Integration.API.Controllers
@@ -10,10 +12,13 @@ namespace OpenAI_DotNet_Integration.API.Controllers
         private readonly ISemanticKernelChatService _chatService;
         private readonly ILogger<ChatController> _logger;
 
-        public ChatController(ISemanticKernelChatService chatService, ILogger<ChatController> logger)
+        private readonly IConfiguration _configuration;
+
+        public ChatController(ISemanticKernelChatService chatService, ILogger<ChatController> logger, IConfiguration configuration)
         {
             _chatService = chatService;
             _logger = logger;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -22,8 +27,8 @@ namespace OpenAI_DotNet_Integration.API.Controllers
         /// <param name="request">The chat message request</param>  
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>The AI response</returns>
-        [HttpPost("message")]
-        public async Task<ActionResult<ChatMessageResponse>> SendMessage([FromBody] ChatMessageRequest request, CancellationToken cancellationToken)
+        [HttpPost("NvidiaModelToChat")]
+        public async Task<ActionResult<ChatMessageResponse>> NvidiaModelToChat([FromBody] ChatMessageRequest request, CancellationToken cancellationToken)
         {
             if (request == null || string.IsNullOrWhiteSpace(request.Message))
             {
@@ -34,6 +39,29 @@ namespace OpenAI_DotNet_Integration.API.Controllers
             {
                 var response = await _chatService.GetChatResponseAsync(request.Message, cancellationToken);
                 return Ok(new ChatMessageResponse { Message = response });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing chat message");
+                return StatusCode(500, "An error occurred while processing your message");
+            }
+        }
+
+        [HttpPost("PhiLocalModelToChat")]
+        public async Task<ActionResult<ChatResponse>> PhiLocalModelToChat([FromBody] ChatMessageRequest request, CancellationToken cancellationToken)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Message))
+            {
+                return BadRequest("Message cannot be empty");
+            }
+
+            try
+            {
+                string ollamaEndpoint = _configuration["Olamma:Endpoint"] ?? "http://localhost:11434"; // Or use a local model with Ollama
+                IChatClient client = new OllamaApiClient(new Uri(ollamaEndpoint), "phi4-mini"); //The default local URL for a local Ollama server
+
+                var reposne =  await client.GetResponseAsync(request.Message);
+                return reposne;
             }
             catch (Exception ex)
             {
