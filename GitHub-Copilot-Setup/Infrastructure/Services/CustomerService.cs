@@ -1,10 +1,11 @@
-using GitHub_Copilot_Setup.Data;
-using GitHub_Copilot_Setup.Dtos;
-using GitHub_Copilot_Setup.Exceptions;
-using GitHub_Copilot_Setup.Models;
+using OpenAI_DotNet_Integration.Data;
+using OpenAI_DotNet_Integration.Domain.Dtos;
+using OpenAI_DotNet_Integration.Domain.Exceptions;
+using OpenAI_DotNet_Integration.Domain.Interfaces;
+using OpenAI_DotNet_Integration.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GitHub_Copilot_Setup.Services;
+namespace OpenAI_DotNet_Integration.Infrastructure.Services;
 
 public sealed class CustomerService(CustomerDbContext dbContext) : ICustomerService
 {

@@ -1,4 +1,4 @@
-namespace GitHub_Copilot_Setup.Models;
+namespace OpenAI_DotNet_Integration.Domain.Models;
 
 public class Customer
 {

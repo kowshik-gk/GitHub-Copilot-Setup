@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace GitHub_Copilot_Setup.Migrations
+namespace OpenAI_DotNet_Integration.Data.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

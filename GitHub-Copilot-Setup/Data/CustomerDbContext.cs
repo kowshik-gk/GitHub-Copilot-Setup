@@ -1,7 +1,7 @@
-using GitHub_Copilot_Setup.Models;
+using OpenAI_DotNet_Integration.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GitHub_Copilot_Setup.Data;
+namespace OpenAI_DotNet_Integration.Data;
 
 public class CustomerDbContext(DbContextOptions<CustomerDbContext> options) : DbContext(options)
 {

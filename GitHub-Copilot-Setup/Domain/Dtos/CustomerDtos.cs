@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GitHub_Copilot_Setup.Dtos;
+namespace OpenAI_DotNet_Integration.Domain.Dtos;
 
 /// <summary>Payload for creating a new customer.</summary>
 public sealed record CreateCustomerRequest

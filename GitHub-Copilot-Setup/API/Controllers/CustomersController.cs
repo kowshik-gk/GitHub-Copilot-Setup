@@ -1,8 +1,8 @@
-using GitHub_Copilot_Setup.Dtos;
-using GitHub_Copilot_Setup.Services;
+using OpenAI_DotNet_Integration.Domain.Dtos;
+using OpenAI_DotNet_Integration.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GitHub_Copilot_Setup.Controllers;
+namespace OpenAI_DotNet_Integration.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

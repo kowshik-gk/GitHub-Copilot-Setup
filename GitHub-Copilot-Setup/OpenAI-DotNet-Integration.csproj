@@ -4,7 +4,11 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>GitHub_Copilot_Setup</RootNamespace>
+    <RootNamespace>OpenAI_DotNet_Integration</RootNamespace>
+    <AssemblyName>OpenAI-DotNet-Integration</AssemblyName>
+    <Title>OpenAI-DotNet-Integration</Title>
+    <Product>OpenAI-DotNet-Integration</Product>
+    <Description>OpenAI .NET Integration ASP.NET Core Web API</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +18,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.14" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.14" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.81.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
     <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.14" />
   </ItemGroup>
 

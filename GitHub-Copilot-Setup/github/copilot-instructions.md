@@ -1,10 +1,19 @@
 # Copilot Instructions
 
 ## 1. Project Overview
-Build maintainable, secure, and scalable full-stack applications using .NET and Angular. Follow Clean Architecture principles, separation of concerns, SOLID principles, and consistent coding standards. Keep implementations concise, reusable, and production-ready.
+Build maintainable, secure, and scalable features for the OpenAI-DotNet-Integration ASP.NET Core Web API. Follow Clean Architecture principles, separation of concerns, SOLID principles, and consistent coding standards. Keep implementations concise, reusable, and production-ready.
+
+Use the following project boundaries:
+- `API`: Program bootstrap, controllers, and HTTP middleware.
+- `Domain`: Models, DTOs, exceptions, and service interfaces.
+- `Infrastructure`: Concrete services and external integrations.
+- `Data`: EF Core DbContext and migrations.
+- `Test`: Unit and integration test projects.
+
+Keep interfaces in `Domain/Interfaces` and implementations in `Infrastructure/Services`.
 
 ## 2. Technology Stack
-- **Backend:** .NET 8, C#, ASP.NET Core Web API, Minimal APIs, REST APIs, LINQ, asynchronous programming.
+- **Backend:** .NET 10, C#, ASP.NET Core Web API, Minimal APIs, REST APIs, LINQ, asynchronous programming.
 - **Architecture & Data Access:** Clean Architecture, Entity Framework Core, Repository Pattern, Dependency Injection, SQL Server, PostgreSQL, Azure Cosmos DB.
 - **Frontend:** Angular 16+, TypeScript, HTML, CSS.
 - **Cloud & DevOps:** Microsoft Azure, Azure Functions, Service Bus, App Services, Event Grid, Entra ID, Azure DevOps CI/CD.

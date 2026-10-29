@@ -1,8 +1,8 @@
-using GitHub_Copilot_Setup.Exceptions;
+using OpenAI_DotNet_Integration.Domain.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GitHub_Copilot_Setup.Middleware;
+namespace OpenAI_DotNet_Integration.API.Middleware;
 
 public sealed class ApiExceptionHandler(ILogger<ApiExceptionHandler> logger) : IExceptionHandler
 {

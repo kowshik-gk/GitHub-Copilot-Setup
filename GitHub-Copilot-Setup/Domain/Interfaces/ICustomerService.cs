@@ -1,6 +1,6 @@
-using GitHub_Copilot_Setup.Dtos;
+using OpenAI_DotNet_Integration.Domain.Dtos;
 
-namespace GitHub_Copilot_Setup.Services;
+namespace OpenAI_DotNet_Integration.Domain.Interfaces;
 
 public interface ICustomerService
 {
